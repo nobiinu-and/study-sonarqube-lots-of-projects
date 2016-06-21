@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
+  CREATE USER sonar ENCRYPTED PASSWORD '7ujmNHY&%TGB';
+  CREATE DATABASE sonar4 ENCODING 'UTF8' OWNER sonar;
+  CREATE DATABASE sonar5 ENCODING 'UTF8' OWNER sonar;
+EOSQL
+
